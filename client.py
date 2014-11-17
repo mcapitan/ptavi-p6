@@ -5,13 +5,26 @@ Programa cliente que abre un socket a un servidor
 """
 
 import socket
+import sys
+import os
 
 # Cliente UDP simple.
 
 # Dirección IP del servidor.
-SERVER = 'localhost'
-PORT = 6001
+metodo = str(sys.argv[1])
+receptor = str(sys.argv[2])
+a = sys.argv[2].split("@")
+b = sys.argv[2].split(":")
+c = b[-2].split("@")
+puertoSIP = b[-1]
+IPreceptor = c[1]
 
+print IPreceptor
+print puertoSIP
+
+
+
+"""
 # Contenido que vamos a enviar
 LINE = '¡Hola mundo!'
 
@@ -30,3 +43,4 @@ print "Terminando socket..."
 # Cerramos todo
 my_socket.close()
 print "Fin."
+"""
