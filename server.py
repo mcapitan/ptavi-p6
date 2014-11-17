@@ -5,6 +5,10 @@ Clase (y programa principal) para un servidor de eco en UDP simple
 """
 
 import SocketServer
+import sys
+
+IP = sys.argv[1]
+puerto = int(sys.argv[2])
 
 
 class EchoHandler(SocketServer.DatagramRequestHandler):
