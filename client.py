@@ -8,7 +8,6 @@ import socket
 import sys
 import os
 
-
 # Dirección IP del servidor.
 metodo = str(sys.argv[1])
 receptor = str(sys.argv[2])
