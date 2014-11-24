@@ -26,23 +26,26 @@ class EchoHandler(SocketServer.DatagramRequestHandler):
                 break
             else:
                 if line.split(' ')[0] == 'INVITE':
-		    reply = 'SIP/2.0 100 Trying\r\nSIP/2.0 180 Ringing\r\nSIP/2.0 200 OK\r\n'
-		    self.wfile.write(reply)
+                    reply = ('SIP/2.0 100 Trying\r\nSIP/2.0 180 Ringing\r\n'
+                             'SIP/2.0 200 OK\r\n')
+                    self.wfile.write(reply)
                     print reply
                 elif line.split(' ')[0] == 'BYE':
-		    reply = 'SIP/2.0 200 OK\r\n'
-		    self.wfile.write(reply)
+                    reply = 'SIP/2.0 200 OK\r\n'
+                    self.wfile.write(reply)
                     print reply
                 elif line.split(' ')[0] == 'ACK':
                     reply = 'SIP/2.0 200 OK\r\n'
                     self.wfile.write(reply)
                     print reply
-                    aEjecutar = './mp32rtp -i ' + IP + ' -p 23032 < ' + fichero_audio
+                    aEjecutar = ('./mp32rtp -i ' + IP + ' -p 23032 < '
+                                 + fichero_audio)
                     print "Vamos a ejecutar", aEjecutar
                     os.system(aEjecutar)
-                    print "Ha terminado\r\n"    
+                    print "Ha terminado\r\n"
                 else:
-		    reply = 'SIP/2.0 400 Bad Request\r\nSIP/2.0 405 Method Not Allowed'
+                    reply = ('SIP/2.0 400 Bad Request\r\n
+                             SIP/2.0 405 Method Not Allowed')
                     self.wfile.write(reply)
                     print reply
 
