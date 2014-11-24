@@ -28,24 +28,25 @@ else:
     # Contenido que vamos a enviar
     try:
         if metodo == 'INVITE' or 'BYE':
-            LINE = metodo + ' sip:' + receptor + '@' + IPreceptor + ' SIP/2.0\r\n'
+            LINE = metodo + ' sip:' + receptor + '@' + IPreceptor +
+            ' SIP/2.0\r\n'
             print LINE
             my_socket.send(LINE + '\r\n')
             data = my_socket.recv(1024)
             print 'Recibido --\r\n', data
 
         if metodo == 'INVITE':
-            LINE1 = 'ACK sip:' + receptor + '@' + ' SIP/2.0' 
+            LINE1 = 'ACK sip:' + receptor + '@' + ' SIP/2.0'
             print ('Envío ' + LINE1)
             my_socket.send(LINE1 + '\r\n')
             data = my_socket.recv(1024)
             print 'Recibido -- ', data
     except socket.error:
-        print 'Error: No server listening at ' + IPreceptor + ' port ' + puertoSIP
+        print 'Error: No server listening at ' + IPreceptor + ' port ' +
+        puertoSIP
 
     print "Terminando socket..."
 
     # Cerramos todo
     my_socket.close()
     print "Fin."
-
