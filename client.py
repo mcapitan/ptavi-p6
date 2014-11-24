@@ -29,7 +29,7 @@ else:
     # Contenido que vamos a enviar
     try:
         if metodo == 'INVITE' or 'BYE':
-            LINE = metodo + ' sip:' + receptor + '@' + IPreceptor + ' SIP/2.0'
+            LINE = metodo + ' sip:' + receptor + '@' + IPreceptor + ' SIP/2.0\r\n'
             print LINE
             my_socket.send(LINE + '\r\n')
             data = my_socket.recv(1024)
